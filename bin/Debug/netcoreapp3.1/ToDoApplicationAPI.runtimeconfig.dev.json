@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/lara.komosa/.dotnet/store/|arch|/|tfm|",
+      "/Users/lara.komosa/.nuget/packages"
+    ]
+  }
+}
