@@ -1,15 +1,9 @@
-﻿using System;
-namespace ToDoApplicationAPI.Biz.Models
+﻿namespace TodoApi.Models
 {
-    public class TodoItem
+    public class TodoItemEntity
     {
         public long Id { get; set; }
         public string Name { get; set; }
         public bool IsComplete { get; set; }
-
-        public TodoItem()
-        {
-
-        }
     }
 }

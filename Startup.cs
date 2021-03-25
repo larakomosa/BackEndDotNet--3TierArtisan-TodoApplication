@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
+using ToDoApplicationAPI.Biz;
 
 namespace ToDoApplicationAPI
 {
@@ -27,6 +28,7 @@ namespace ToDoApplicationAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<ITodoItemsManager, TodoItemsManager>();
             services.AddDbContext<TodoContext>(opt =>
                                     {opt.UseSqlServer(Configuration.GetConnectionString("TodoDb"));
                                     });
