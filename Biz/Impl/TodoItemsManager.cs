@@ -17,6 +17,13 @@ namespace ToDoApplicationAPI.Biz
         {
             this.todoContext = todoContext;
         }
+        public async Task<IEnumerable<TodoItem>> Get()
+        {
+
+            return await todoContext.TodoItems
+                .Select(item => new TodoItem { Id = item.Id, Name = item.Name, IsComplete = item.IsComplete })
+                .ToListAsync();
+        }
         public async Task<IEnumerable<TodoItem>> Get(IEnumerable<long> TodoIds)
         {
 

@@ -22,12 +22,19 @@ namespace ToDoApplicationAPI.Controllers
             _manager = manager;
         }
 
-        //// GET: api/TodoItems
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<TodoItemEntity>>> GetTodoItems()
-        //{
-        //    //return await _manager.TodoItems.ToListAsync();
-        //}
+        // GET: api/TodoItems
+        [HttpGet]
+         public async Task<ActionResult<TodoItem>> GetTodoItem()
+        {
+            var todoItem = await _manager.Get();
+
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(todoItem);
+        }
 
         // GET: api/TodoItems/5
         [HttpGet("{id}")]
