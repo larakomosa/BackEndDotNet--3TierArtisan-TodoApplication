@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
 using ToDoApplicationAPI.Biz;
+using ToDoApplicationAPI.Data;
 
 namespace ToDoApplicationAPI
 {
@@ -29,6 +30,7 @@ namespace ToDoApplicationAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<ITodoItemsManager, TodoItemsManager>();
+            services.AddTransient<ITodoItemsDao, TodoItemsDao>();
             services.AddDbContext<TodoContext>(opt =>
                                     {opt.UseSqlServer(Configuration.GetConnectionString("TodoDb"));
                                     });

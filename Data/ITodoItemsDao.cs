@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Threading.Tasks;
+using ToDoApplicationAPI.Biz.Models;
+using ToDoApplicationAPI.Controllers;
+
 namespace ToDoApplicationAPI.Data
 {
-    public class ITodoItemsDao
+    internal interface ITodoItemsDao
     {
-        public ITodoItemsDao()
-        {
-        }
+        Task<TodoItem> Create(CreateTodoItemInfo info);
     }
 }

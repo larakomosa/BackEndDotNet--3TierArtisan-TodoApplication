@@ -8564,7 +8564,7 @@
       "outputPath": "/Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/lara.komosa/.nuget/NuGet/NuGet.Config"
+        "/Users/lara.komosa/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ToDoApplicationAPI.Biz.Models;
 
 namespace TodoApi.Models
 {
@@ -9,6 +12,6 @@ namespace TodoApi.Models
         {
         }
 
-        public DbSet<TodoItemEntity> TodoItems { get; set; }
+        public DbSet<TodoItem> TodoItems { get; set; }
     }
 }

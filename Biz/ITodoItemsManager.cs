@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TodoApi.Models;
 using ToDoApplicationAPI.Biz.Models;
+using ToDoApplicationAPI.Controllers;
 
 namespace ToDoApplicationAPI.Biz
 {
@@ -24,6 +25,8 @@ namespace ToDoApplicationAPI.Biz
         /// <param name="TodoAll">The unique identifiers of the clients to get.</param>
         /// <returns>The requested clients.</returns>
         Task<IEnumerable<TodoItem>> Get();
+        Task<TodoItem>Create(CreateTodoItemInfo info);
+        Task Delete(long id);
 
         ///// <summary>
         ///// Get a client by its unique identifier.
@@ -32,11 +35,11 @@ namespace ToDoApplicationAPI.Biz
         ///// <returns>The requested client.</returns>
         //Task<TodoItemEntity> Get(int Id);
 
-        ///// <summary>
-        ///// Create a new client.
-        ///// </summary>
-        ///// <param name="info">Information required to create a new client.</param>
-        //Task<TodoItemEntity> Create(? info);
+        /// <summary>
+        /// Create a new client.
+        /// </summary>
+        /// <param name="info">Information required to create a new client.</param>
+
 
         ///// <summary>
         ///// Update a client.

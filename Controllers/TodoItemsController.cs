@@ -50,6 +50,35 @@ namespace ToDoApplicationAPI.Controllers
             return Ok(todoItem);
         }
 
-    
+        [HttpPost]
+        public async Task<ActionResult>PostTodoItem([FromBody] CreateTodoItemMessage request)
+        {
+
+            var info = new CreateTodoItemInfo(request.Name, request.IsComplete);
+
+            await _manager.Create(info);
+
+            return new OkObjectResult(info);
+
+        }
+
+        //[HttpPut("{id}")]
+        //public async Task<ActionResult> UpdateTodoItem([FromRoute] long id, [FromBody] TodoItem request)
+        //{
+        //    var info = new TodoItem(request.Name, request.IsComplete);
+
+        //    await _manager.Update(id, info);
+
+        //    return NoContent();
+        //}
+
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> DeleteTask([FromRoute] long id)
+        //{
+        //    await _manager.Delete(id);
+
+        //    return new OkResult();
+        //}
+
     }
 }

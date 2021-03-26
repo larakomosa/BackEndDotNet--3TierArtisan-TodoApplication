@@ -22,5 +22,7 @@
     <Folder Include="Biz\Models\" />
     <Folder Include="Biz\Impl\" />
     <Folder Include="Data\Impl\" />
+    <Folder Include="Controllers\Web\" />
+    <Folder Include="Common\" />
   </ItemGroup>
 </Project>
