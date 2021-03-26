@@ -26,6 +26,7 @@ namespace ToDoApplicationAPI.Data
             return item;
 
         }
+
         async public Task<TodoItem> Update(long id, UpdateTodoItemInfo info)
 
         {
@@ -37,8 +38,18 @@ namespace ToDoApplicationAPI.Data
 
             await todoContext.SaveChangesAsync();
 
-            return null;
+            return change;
 
         }
+        async public Task<TodoItem> Delete(long id)
+        {
+            var item = await todoContext.TodoItems.FindAsync(id);
+            todoContext.TodoItems.Remove(item);
+
+            await todoContext.SaveChangesAsync();
+
+            return item;
+        }
     }
-}
+    }
+

@@ -16,7 +16,7 @@ namespace ToDoApplicationAPI.Biz.Models
 
         public TodoItem(string name, bool isComplete)
         {
-            Name = name;
+        Name = name;
             IsComplete = isComplete;
         }
     }

@@ -27,7 +27,7 @@ namespace ToDoApplicationAPI.Biz
         Task<IEnumerable<TodoItem>> Get();
         Task<TodoItem>Create(CreateTodoItemInfo info);
         Task<TodoItem> Update(long id, UpdateTodoItemInfo info);
-        Task Delete(long id);
+        Task <TodoItem>Delete(long id);
 
 
 

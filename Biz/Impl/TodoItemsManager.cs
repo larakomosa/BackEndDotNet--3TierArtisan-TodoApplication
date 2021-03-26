@@ -44,41 +44,19 @@ namespace ToDoApplicationAPI.Biz
             return await todoItemsDao.Create(info);
         }
 
-        public Task Delete(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-
         public async Task<TodoItem> Update (long id, UpdateTodoItemInfo info)
         {
             return await todoItemsDao.Update(id, info);
 }
 
+        public async Task<TodoItem> Delete(long id)
+        {
+            return await todoItemsDao.Delete(id);
+        }
 
-        //public async Task<TodoItemEntity> Delete(IEnumerable<long> TodoIds)
-        //{
-
-        //    return await todoContext.TodoItems
-        //        .Where(item => TodoIds.Contains(item.Id))
-        //        .SingleAsync();
-        //}
-
-        //Task ITodoItemsManager.Create(TodoItem info)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task Delete(long id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task Update(long id, TodoItem info)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
-}
+
+    }
+
     
     

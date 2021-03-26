@@ -9,5 +9,6 @@ namespace ToDoApplicationAPI.Data
     {
         Task<TodoItem> Create(CreateTodoItemInfo info);
         Task<TodoItem> Update(long id, UpdateTodoItemInfo info);
+        Task<TodoItem> Delete(long id);
     }
 }
