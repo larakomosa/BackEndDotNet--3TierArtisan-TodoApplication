@@ -26,7 +26,11 @@ namespace ToDoApplicationAPI.Biz
         /// <returns>The requested clients.</returns>
         Task<IEnumerable<TodoItem>> Get();
         Task<TodoItem>Create(CreateTodoItemInfo info);
+        Task<TodoItem> Update(long id, UpdateTodoItemInfo info);
         Task Delete(long id);
+
+
+
 
         ///// <summary>
         ///// Get a client by its unique identifier.
@@ -48,7 +52,7 @@ namespace ToDoApplicationAPI.Biz
         ///// <param name="info">Information required to update a client.</param>
         //Task<TodoItemEntity> Update(int, ? info);
     }
-    }
+}
 
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
 using ToDoApplicationAPI.Biz.Models;
 using ToDoApplicationAPI.Controllers;
@@ -23,6 +24,20 @@ namespace ToDoApplicationAPI.Data
             await todoContext.SaveChangesAsync();
 
             return item;
+
+        }
+        async public Task<TodoItem> Update(long id, UpdateTodoItemInfo info)
+
+        {
+            var change = await todoContext.TodoItems
+                .FirstAsync(i => i.Id == id);
+
+            change.Name = info.Name;
+            change.IsComplete = info.IsComplete;
+
+            await todoContext.SaveChangesAsync();
+
+            return null;
 
         }
     }

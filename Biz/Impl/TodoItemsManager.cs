@@ -50,13 +50,11 @@ namespace ToDoApplicationAPI.Biz
         }
 
 
-        //public async Task<TodoItem> Update(int id, string info)
+        public async Task<TodoItem> Update (long id, UpdateTodoItemInfo info)
+        {
+            return await todoItemsDao.Update(id, info);
+}
 
-
-        //    return await todoContext.TodoItems
-        //        .Select(item => new TodoItem { Id = item.Id, Name = item.Name, IsComplete = item.IsComplete })
-        //        .ToListAsync();
-        //}
 
         //public async Task<TodoItemEntity> Delete(IEnumerable<long> TodoIds)
         //{

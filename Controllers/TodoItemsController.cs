@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using TodoApi.Models;
 using ToDoApplicationAPI.Biz;
 using ToDoApplicationAPI.Biz.Models;
 
@@ -62,15 +56,15 @@ namespace ToDoApplicationAPI.Controllers
 
         }
 
-        //[HttpPut("{id}")]
-        //public async Task<ActionResult> UpdateTodoItem([FromRoute] long id, [FromBody] TodoItem request)
-        //{
-        //    var info = new TodoItem(request.Name, request.IsComplete);
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateTodoItem([FromRoute] long id, [FromBody] UpdateTodoItemMessage request)
+        {
+            var info = new UpdateTodoItemInfo(request.Name, request.IsComplete);
 
-        //    await _manager.Update(id, info);
+            await _manager.Update(id, info);
 
-        //    return NoContent();
-        //}
+            return NoContent();
+        }
 
         //[HttpDelete("{id}")]
         //public async Task<IActionResult> DeleteTask([FromRoute] long id)
