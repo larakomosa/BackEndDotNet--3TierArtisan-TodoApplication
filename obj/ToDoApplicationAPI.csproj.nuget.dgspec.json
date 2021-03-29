@@ -14,13 +14,15 @@
         "outputPath": "/Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "/Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/NuGet.Config",
           "/Users/lara.komosa/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/artisan-framework/api/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -38,6 +40,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Artisan.Core": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[3.1.0, )"

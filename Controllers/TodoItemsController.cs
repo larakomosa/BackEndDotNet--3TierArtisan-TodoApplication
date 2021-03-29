@@ -44,15 +44,29 @@ namespace ToDoApplicationAPI.Controllers
             return Ok(todoItem);
         }
 
+        // GET: api/TodoItems/Count
+        [HttpGet]
+        public async Task<ActionResult<TodoItem>> GetCountOfRestaurants()
+        {
+            var todoItem = await _manager.Get();
+
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(todoItem);
+        }
+
         [HttpPost]
         public async Task<ActionResult>PostTodoItem([FromBody] CreateTodoItemMessage request)
         {
 
-            var info = new CreateTodoItemInfo(request.Name, request.IsComplete);
+            var createInfo = new CreateTodoItemInfo(request.Name, request.IsComplete);
 
-            await _manager.Create(info);
+            await _manager.Create(createInfo);
 
-            return new OkObjectResult(info);
+            return new OkObjectResult(createInfo);
 
         }
 
@@ -74,18 +88,6 @@ namespace ToDoApplicationAPI.Controllers
             return new OkResult();
         }
 
-        //[HttpPost("/search")]
-        //public async Task<ActionResult> SearchTodoList([FromBody] SearchTodoListRequestMessage request, [FromQuery] string fields)
-
-        //{
-        //    var info = new SearchTodoListRequestInfo(request.Id, request.Name, request.IsComplete);
-
-        //    var results = await _manager.Search(info);
-
-        //    var responses = await _factory.Create<ClientPayment, ClientPaymentResponse>(results.Data, fields);
-
-        //    return new SearchResponse<ClientPaymentResponse>(responses, results.TotalCount);
-        //}
-
     }
+
 }

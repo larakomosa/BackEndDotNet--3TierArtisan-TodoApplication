@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "X8zfRbP6Cc2c+FzupFh62evhroEg5KjfkCK7O3uQC62+yH43fLCduMnQZBuky5XlOWWyKZfoqiYoggALXWkekg==",
+  "dgSpecHash": "na5uDvbQ7HvUwfKy5Ip8QIPGcY02bYZMFzsuBFdYeQh//5bJZcVIgYJHZ4fkZNwMlUDaDjokYbXLnR8PztttVw==",
   "success": true,
   "projectFilePath": "/Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/ToDoApplicationAPI.csproj",
   "expectedPackageFiles": [
+    "/Users/lara.komosa/.nuget/packages/artisan.core/1.0.0/artisan.core.1.0.0.nupkg.sha512",
     "/Users/lara.komosa/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/lara.komosa/.nuget/packages/microsoft.aspnetcore.html.abstractions/2.2.0/microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "/Users/lara.komosa/.nuget/packages/microsoft.aspnetcore.jsonpatch/3.1.0/microsoft.aspnetcore.jsonpatch.3.1.0.nupkg.sha512",
@@ -94,6 +95,7 @@
     "/Users/lara.komosa/.nuget/packages/system.composition.typedparts/1.0.31/system.composition.typedparts.1.0.31.nupkg.sha512",
     "/Users/lara.komosa/.nuget/packages/system.configuration.configurationmanager/4.7.0/system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "/Users/lara.komosa/.nuget/packages/system.console/4.3.0/system.console.4.3.0.nupkg.sha512",
+    "/Users/lara.komosa/.nuget/packages/system.data.common/4.3.0/system.data.common.4.3.0.nupkg.sha512",
     "/Users/lara.komosa/.nuget/packages/system.diagnostics.debug/4.3.0/system.diagnostics.debug.4.3.0.nupkg.sha512",
     "/Users/lara.komosa/.nuget/packages/system.diagnostics.diagnosticsource/5.0.1/system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
     "/Users/lara.komosa/.nuget/packages/system.diagnostics.tools/4.3.0/system.diagnostics.tools.4.3.0.nupkg.sha512",

@@ -8,6 +8,7 @@ namespace ToDoApplicationAPI.Biz.Models
         public long Id { get; set; }
         public string Name { get; set; }
         public bool IsComplete { get; set; }
+        public int TotalCount { get; internal set; }
 
         public TodoItem()
         {
@@ -18,6 +19,11 @@ namespace ToDoApplicationAPI.Biz.Models
         {
         Name = name;
             IsComplete = isComplete;
+        }
+
+        internal object ToModel()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -30,7 +30,7 @@ namespace ToDoApplicationAPI.Biz
             /// Create a new todo item 
             /// </summary>
             /// <param name="info">Information required to create a new todo item.</param>
-            Task<TodoItem> Create(CreateTodoItemInfo info);
+            Task<TodoItem> Create(CreateTodoItemInfo createInfo);
 
             /// <summary>
             /// Update a todo item.
@@ -46,6 +46,7 @@ namespace ToDoApplicationAPI.Biz
             /// <param name="id">The unique identifier of the todo item being updated.</param>
             Task<TodoItem> Delete(long id);
 
+       
     }
 }
 

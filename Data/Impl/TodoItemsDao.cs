@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
+using ToDoApplicationAPI.Biz;
 using ToDoApplicationAPI.Biz.Models;
 using ToDoApplicationAPI.Controllers;
 
@@ -16,9 +18,9 @@ namespace ToDoApplicationAPI.Data
             this.todoContext = todoContext;
         }
 
-        async public Task<TodoItem> Create(CreateTodoItemInfo info)
+        async public Task<TodoItem> Create(CreateTodoItemInfo createInfo)
         {
-            var item = new TodoItem(info.Name, info.IsComplete);
+            var item = new TodoItem(createInfo.Name, createInfo.IsComplete);
 
             todoContext.TodoItems.Add(item);
             await todoContext.SaveChangesAsync();
@@ -50,6 +52,8 @@ namespace ToDoApplicationAPI.Data
 
             return item;
         }
+
+
     }
     }
 
