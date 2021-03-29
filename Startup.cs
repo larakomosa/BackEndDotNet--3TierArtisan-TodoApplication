@@ -14,6 +14,8 @@ using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
 using ToDoApplicationAPI.Biz;
 using ToDoApplicationAPI.Data;
+using Newtonsoft.Json.Serialization;
+
 
 namespace ToDoApplicationAPI
 {
@@ -29,6 +31,16 @@ namespace ToDoApplicationAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft
+                .Json.ReferenceLoopHandling.Ignore)
+                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
+                = new DefaultContractResolver());
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
             services.AddTransient<ITodoItemsManager, TodoItemsManager>();
             services.AddTransient<ITodoItemsDao, TodoItemsDao>();
             services.AddDbContext<TodoContext>(opt =>
@@ -40,6 +52,7 @@ namespace ToDoApplicationAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

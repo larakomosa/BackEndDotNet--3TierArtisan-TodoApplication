@@ -74,5 +74,18 @@ namespace ToDoApplicationAPI.Controllers
             return new OkResult();
         }
 
+        //[HttpPost("/search")]
+        //public async Task<ActionResult> SearchTodoList([FromBody] SearchTodoListRequestMessage request, [FromQuery] string fields)
+
+        //{
+        //    var info = new SearchTodoListRequestInfo(request.Id, request.Name, request.IsComplete);
+
+        //    var results = await _manager.Search(info);
+
+        //    var responses = await _factory.Create<ClientPayment, ClientPaymentResponse>(results.Data, fields);
+
+        //    return new SearchResponse<ClientPaymentResponse>(responses, results.TotalCount);
+        //}
+
     }
 }
