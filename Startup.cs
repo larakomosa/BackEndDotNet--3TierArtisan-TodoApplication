@@ -15,7 +15,11 @@ using TodoApi.Models;
 using ToDoApplicationAPI.Biz;
 using ToDoApplicationAPI.Data;
 using Newtonsoft.Json.Serialization;
-
+using Microsoft.AspNetCore.Http;
+using ToDoApplicationAPI.Biz.Models;
+using Artisan.Service.Core.Web;
+using ToDoApplicationAPI.Controllers.Contracts;
+using ToDoApplicationAPI.Controllers.Builders;
 
 namespace ToDoApplicationAPI
 {
@@ -36,8 +40,10 @@ namespace ToDoApplicationAPI
             {
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
+            services.AddTransient<IMessageBuilder<TodoItem, TodoItemResponse>, TodoItemResponseBuilder>();
             services.AddTransient<ITodoItemsManager, TodoItemsManager>();
             services.AddTransient<ITodoItemsDao, TodoItemsDao>();
+            services.AddTransient<IHttpContextAccessor,IHttpContextAccessor>();
             services.AddDbContext<TodoContext>(opt =>
                                     {opt.UseSqlServer(Configuration.GetConnectionString("TodoDb"));
                                     });

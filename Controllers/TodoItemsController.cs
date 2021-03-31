@@ -2,6 +2,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ToDoApplicationAPI.Biz;
 using ToDoApplicationAPI.Biz.Models;
+using Artisan.Core.Extensions;
+using Artisan.Service.Core.Web;
+using ToDoApplicationAPI.Controllers.Contracts;
 
 namespace ToDoApplicationAPI.Controllers
 {
@@ -10,10 +13,14 @@ namespace ToDoApplicationAPI.Controllers
     public class TodoItemsController : ControllerBase
     {
         private readonly ITodoItemsManager _manager;
+        private readonly IMessageFactory _factory;
 
-        public TodoItemsController(ITodoItemsManager manager)
+
+        public TodoItemsController(ITodoItemsManager manager, IMessageFactory factory)
         {
             _manager = manager;
+            _factory = factory;
+
         }
 
         // GET: api/TodoItems
@@ -87,6 +94,20 @@ namespace ToDoApplicationAPI.Controllers
 
             return new OkResult();
         }
+
+        [HttpPost("/search")]
+        public async Task<SearchResponse<TodoItemResponse>> SearchTodoList([FromBody] SearchTodoListRequestMessage request, [FromQuery] string fields)
+
+        {
+            var info = new SearchTodoListRequestInfo(request.Id, request.Name, request.IsComplete);
+
+            var results = await _manager.Search(info);
+
+            var responses = await _factory.Create<TodoItem, TodoItemResponse>(results.Data);
+
+            return new SearchResponse<TodoItemResponse>(responses, results.TotalCount);
+        }
+
 
     }
 

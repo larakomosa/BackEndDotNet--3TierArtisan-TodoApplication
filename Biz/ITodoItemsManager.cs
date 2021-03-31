@@ -39,15 +39,17 @@ namespace ToDoApplicationAPI.Biz
             /// <param name="info">Information required to update a todo Item.</param>
             Task<TodoItem> Update(long id, UpdateTodoItemInfo info);
 
-
             /// <summary>
             /// Delete a todo item.
             /// </summary>
             /// <param name="id">The unique identifier of the todo item being updated.</param>
             Task<TodoItem> Delete(long id);
 
-       
-    }
+        /// <summary>
+        /// Search for An Item
+        /// </summary>
+        Task<SearchResponse<TodoItem>> Search(SearchTodoListRequestInfo info);
+    };
 }
 
 

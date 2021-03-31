@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[1.0.0, )"
             },
+            "Artisan.Service.Core": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[3.1.0, )"

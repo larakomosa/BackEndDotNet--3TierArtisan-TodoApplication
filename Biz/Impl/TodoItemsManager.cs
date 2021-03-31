@@ -17,11 +17,18 @@ namespace ToDoApplicationAPI.Biz
     {
         private readonly TodoContext todoContext;
         private readonly ITodoItemsDao todoItemsDao;
+        private readonly IHttpContextAccessor accessor;
 
-        public TodoItemsManager(TodoContext todoContext, ITodoItemsDao todoItemsDao)
+
+        public TodoItemsManager(TodoContext todoContext, ITodoItemsDao todoItemsDao, IHttpContextAccessor accessor)
         {
+            Verify.That(todoContext, nameof(todoContext)).IsNotNull();
+            Verify.That(todoItemsDao, nameof(todoItemsDao)).IsNotNull();
+            Verify.That(accessor, nameof(accessor)).IsNotNull();
+
             this.todoContext = todoContext;
             this.todoItemsDao = todoItemsDao;
+            this.accessor = accessor;
         }
 
         public async Task<IEnumerable<TodoItem>> Get(IEnumerable<long> TodoIds)
@@ -41,11 +48,6 @@ namespace ToDoApplicationAPI.Biz
                 .ToListAsync();
         }
 
-        public int GetCountofRestaurants()
-        {
-            return todoContext.TodoItems.Count();
-        }
-
         public async Task<TodoItem> Create(CreateTodoItemInfo createInfo)
         {
             Verify.That(createInfo, nameof(createInfo)).IsNotNull();
@@ -54,13 +56,21 @@ namespace ToDoApplicationAPI.Biz
             return await todoItemsDao.Create(createInfo);
         }
 
+        public async Task<SearchResponse<TodoItem>> Search(SearchTodoListRequestInfo info)
+        {
+            Verify.That(info, nameof(info)).IsNotNull();
+
+            return await todoItemsDao.Search(info);
+        }
+
+
         public async Task<TodoItem> Update (long id, UpdateTodoItemInfo info)
         {
             Verify.That(id, nameof(id)).IsNotNull();
             Verify.That(info, nameof(info)).IsNotNull();
 
             return await todoItemsDao.Update(id, info);
-}
+        }
 
         public async Task<TodoItem> Delete(long id)
         {
@@ -68,6 +78,12 @@ namespace ToDoApplicationAPI.Biz
 
             return await todoItemsDao.Delete(id);
         }
+
+        public int GetCountofRestaurants()
+        {
+            return todoContext.TodoItems.Count();
+        }
+
     }
 
     }

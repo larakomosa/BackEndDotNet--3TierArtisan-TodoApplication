@@ -53,7 +53,20 @@ namespace ToDoApplicationAPI.Data
             return item;
         }
 
+        public async Task<SearchResponse<TodoItem>> Search(SearchTodoListRequestInfo info)
+        {
+            var query = todoContext.TodoItems
+            .AsQueryable()
+            .AsNoTracking();
 
+            var count = await query.CountAsync();
+            var results = await query
+                .OrderBy(c => c.Id)
+                .ToListAsync();
+
+            return new SearchResponse<TodoItem>(results.Select(e => e.ToModel()), count);
+
+        }
     }
-    }
+}
 

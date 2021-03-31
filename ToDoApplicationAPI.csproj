@@ -14,6 +14,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
     <PackageReference Include="Artisan.Core" Version="1.0.0" />
+    <PackageReference Include="Artisan.Service.Core" Version="2.0.0" />
+
   </ItemGroup>
 
 
@@ -26,5 +28,8 @@
     <Folder Include="Data\Impl\" />
     <Folder Include="Controllers\Web\" />
     <Folder Include="Common\" />
+    <Folder Include="Controllers\Builders\" />
+    <Folder Include="Controllers\Extensions\" />
+    <Folder Include="Controllers\Contracts\" />
   </ItemGroup>
 </Project>

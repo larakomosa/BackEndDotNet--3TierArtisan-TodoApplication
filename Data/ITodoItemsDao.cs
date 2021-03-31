@@ -11,6 +11,6 @@ namespace ToDoApplicationAPI.Data
         Task<TodoItem> Create(CreateTodoItemInfo createInfo);
         Task<TodoItem> Update(long id, UpdateTodoItemInfo info);
         Task<TodoItem> Delete(long id);
-        //Task<SearchResult<TodoItem>> Search(SearchTodoListRequestInfo info);
+        Task<SearchResponse<TodoItem>> Search(SearchTodoListRequestInfo info);
     }
 }
