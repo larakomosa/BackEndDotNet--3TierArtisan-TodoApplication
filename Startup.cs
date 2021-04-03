@@ -20,6 +20,12 @@ using ToDoApplicationAPI.Biz.Models;
 using Artisan.Service.Core.Web;
 using ToDoApplicationAPI.Controllers.Contracts;
 using ToDoApplicationAPI.Controllers.Builders;
+using StructureMap;
+using Container = StructureMap.Container;
+using CommonServiceLocator;
+using Artisan.Core.Bootstrap.StructureMap;
+using ToDoApplicationAPI.Bootstrap;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace ToDoApplicationAPI
 {
@@ -33,9 +39,10 @@ namespace ToDoApplicationAPI
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-         
+
+          
             services.AddCors(c =>
             {
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
@@ -43,15 +50,30 @@ namespace ToDoApplicationAPI
             services.AddTransient<IMessageBuilder<TodoItem, TodoItemResponse>, TodoItemResponseBuilder>();
             services.AddTransient<ITodoItemsManager, TodoItemsManager>();
             services.AddTransient<ITodoItemsDao, TodoItemsDao>();
-            services.AddTransient<IHttpContextAccessor,IHttpContextAccessor>();
             services.AddDbContext<TodoContext>(opt =>
                                     {opt.UseSqlServer(Configuration.GetConnectionString("TodoDb"));
                                     });
-            services.AddControllers();
+
+              services.AddMvc();
+
+            // Wire up StructureMap
+            var container = new Container();
+            container.Configure(config =>
+            {
+                config.Populate(services);
+                config.For<IServiceLocator>().Singleton().Use(new StructureMapServiceLocator(container));
+            });
+
+            var registrar = new StructureMapRegistrar(container);
+
+            registrar.Register<BaseRegistry>();
+
+            return new StructureMapServiceProvider(container);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             if (env.IsDevelopment())
@@ -61,14 +83,7 @@ namespace ToDoApplicationAPI
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseMvc();
         }
     }
 }

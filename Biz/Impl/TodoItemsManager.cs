@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using ToDoApplicationAPI.Data;
 using TodoApi.Models;
 using ToDoApplicationAPI.Biz.Models;
@@ -17,18 +16,14 @@ namespace ToDoApplicationAPI.Biz
     {
         private readonly TodoContext todoContext;
         private readonly ITodoItemsDao todoItemsDao;
-        private readonly IHttpContextAccessor accessor;
 
-
-        public TodoItemsManager(TodoContext todoContext, ITodoItemsDao todoItemsDao, IHttpContextAccessor accessor)
+        public TodoItemsManager(TodoContext todoContext, ITodoItemsDao todoItemsDao)
         {
             Verify.That(todoContext, nameof(todoContext)).IsNotNull();
             Verify.That(todoItemsDao, nameof(todoItemsDao)).IsNotNull();
-            Verify.That(accessor, nameof(accessor)).IsNotNull();
 
             this.todoContext = todoContext;
             this.todoItemsDao = todoItemsDao;
-            this.accessor = accessor;
         }
 
         public async Task<IEnumerable<TodoItem>> Get(IEnumerable<long> TodoIds)
@@ -78,12 +73,6 @@ namespace ToDoApplicationAPI.Biz
 
             return await todoItemsDao.Delete(id);
         }
-
-        public int GetCountofRestaurants()
-        {
-            return todoContext.TodoItems.Count();
-        }
-
     }
 
     }

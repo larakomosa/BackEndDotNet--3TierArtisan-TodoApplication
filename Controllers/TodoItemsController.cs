@@ -51,20 +51,6 @@ namespace ToDoApplicationAPI.Controllers
             return Ok(todoItem);
         }
 
-        // GET: api/TodoItems/Count
-        [HttpGet]
-        public async Task<ActionResult<TodoItem>> GetCountOfRestaurants()
-        {
-            var todoItem = await _manager.Get();
-
-            if (todoItem == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(todoItem);
-        }
-
         [HttpPost]
         public async Task<ActionResult>PostTodoItem([FromBody] CreateTodoItemMessage request)
         {

@@ -32,12 +32,14 @@
       "ToDoApplicationAPI/1.0.0": {
         "dependencies": {
           "Artisan.Core": "1.0.0",
+          "Artisan.Core.Bootstrap.StructureMap": "1.0.0",
           "Artisan.Service.Core": "2.0.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.0",
           "Microsoft.EntityFrameworkCore.Design": "5.0.4",
           "Microsoft.EntityFrameworkCore.InMemory": "5.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.4",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.0.0",
+          "StructureMap.Microsoft.DependencyInjection": "2.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -331,6 +333,22 @@
         },
         "compile": {
           "lib/netstandard1.3/Artisan.Core.dll": {}
+        }
+      },
+      "Artisan.Core.Bootstrap.StructureMap/1.0.0": {
+        "dependencies": {
+          "Artisan.Core": "1.0.0",
+          "CommonServiceLocator": "2.0.2",
+          "StructureMap": "4.6.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Artisan.Core.Bootstrap.StructureMap.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Artisan.Core.Bootstrap.StructureMap.dll": {}
         }
       },
       "Artisan.Core.Data/2.0.0": {
@@ -1177,9 +1195,9 @@
           "System.Numerics.Vectors": "4.1.1",
           "System.Reflection.DispatchProxy": "4.0.1",
           "System.Reflection.Metadata": "1.6.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.Reader": "4.0.0",
-          "System.Runtime.Loader": "4.0.0",
+          "System.Runtime.Loader": "4.3.0",
           "System.Security.Cryptography.Algorithms": "4.3.0",
           "System.Security.Cryptography.Encoding": "4.3.0",
           "System.Security.Cryptography.Primitives": "4.3.0",
@@ -1225,7 +1243,7 @@
           "System.Reflection": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -1526,6 +1544,38 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
+      "StructureMap/4.6.1": {
+        "dependencies": {
+          "System.Collections.Concurrent": "4.3.0",
+          "System.Reflection.Emit.Lightweight": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
+          "System.Runtime.Loader": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/StructureMap.dll": {
+            "assemblyVersion": "4.6.1.0",
+            "fileVersion": "4.6.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/StructureMap.dll": {}
+        }
+      },
+      "StructureMap.Microsoft.DependencyInjection/2.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "StructureMap": "4.6.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/StructureMap.Microsoft.DependencyInjection.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/StructureMap.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -1628,7 +1678,7 @@
           "System.Reflection": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -1866,7 +1916,7 @@
           "System.Reflection.Emit": "4.3.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -2043,7 +2093,7 @@
           "System.Reflection.Emit.Lightweight": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -2230,7 +2280,7 @@
           "System.Reflection.Emit.Lightweight": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -2315,12 +2365,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Reflection.TypeExtensions/4.3.0": {
-        "dependencies": {
-          "System.Reflection": "4.3.0",
-          "System.Runtime": "4.3.0"
-        }
-      },
+      "System.Reflection.TypeExtensions/4.4.0": {},
       "System.Resources.Reader/4.0.0": {
         "dependencies": {
           "System.IO": "4.3.0",
@@ -2400,7 +2445,7 @@
           "runtime.native.System": "4.3.0"
         }
       },
-      "System.Runtime.Loader/4.0.0": {
+      "System.Runtime.Loader/4.3.0": {
         "dependencies": {
           "System.IO": "4.3.0",
           "System.Reflection": "4.3.0",
@@ -2764,7 +2809,7 @@
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -4409,6 +4454,13 @@
       "path": "artisan.core/1.0.0",
       "hashPath": "artisan.core.1.0.0.nupkg.sha512"
     },
+    "Artisan.Core.Bootstrap.StructureMap/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-q+oGAluGtGDJyPvYwxfIPpP7ExiX9IZGNZq+q/8kEOu3+L1kbOWpvyjRk9giBc3DqVDBLy2bnf8XgEYmZ+XvGQ==",
+      "path": "artisan.core.bootstrap.structuremap/1.0.0",
+      "hashPath": "artisan.core.bootstrap.structuremap.1.0.0.nupkg.sha512"
+    },
     "Artisan.Core.Data/2.0.0": {
       "type": "package",
       "serviceable": true,
@@ -5011,6 +5063,20 @@
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
+    "StructureMap/4.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Zwp2bvFOS7bDC4UAD5TuJEbdLN9q0ly761vTzD2t+NqyDF0CpmuB2/8ZzwnVlzwPPSh1e4RqG4LRDx4fX3VdSw==",
+      "path": "structuremap/4.6.1",
+      "hashPath": "structuremap.4.6.1.nupkg.sha512"
+    },
+    "StructureMap.Microsoft.DependencyInjection/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-spA8Q/BVpng2ACbVpRw+v2qv5zWYGC0M9InYkOEeWPT8bLagoGqX3cs75D9wcFpXXO74W1tIpi2ve1JiMdFztQ==",
+      "path": "structuremap.microsoft.dependencyinjection/2.0.0",
+      "hashPath": "structuremap.microsoft.dependencyinjection.2.0.0.nupkg.sha512"
+    },
     "System.AppContext/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -5452,12 +5518,12 @@
       "path": "system.reflection.primitives/4.3.0",
       "hashPath": "system.reflection.primitives.4.3.0.nupkg.sha512"
     },
-    "System.Reflection.TypeExtensions/4.3.0": {
+    "System.Reflection.TypeExtensions/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7u6ulLcZbyxB5Gq0nMkQttcdBTx57ibzw+4IOXEfR+sXYQoHvjW5LTLyNr8O22UIMrqYbchJQJnos4eooYzYJA==",
-      "path": "system.reflection.typeextensions/4.3.0",
-      "hashPath": "system.reflection.typeextensions.4.3.0.nupkg.sha512"
+      "sha512": "sha512-dkmh/ySlwnXJp/1qYP9uyKkCK1CXR/REFzl7abHcArxBcV91mY2CgrrzSRA5Z/X4MevJWwXsklGRdR3A7K9zbg==",
+      "path": "system.reflection.typeextensions/4.4.0",
+      "hashPath": "system.reflection.typeextensions.4.4.0.nupkg.sha512"
     },
     "System.Resources.Reader/4.0.0": {
       "type": "package",
@@ -5522,12 +5588,12 @@
       "path": "system.runtime.interopservices.runtimeinformation/4.3.0",
       "hashPath": "system.runtime.interopservices.runtimeinformation.4.3.0.nupkg.sha512"
     },
-    "System.Runtime.Loader/4.0.0": {
+    "System.Runtime.Loader/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4UN78GOVU/mbDFcXkEWtetJT/sJ0yic2gGk1HSlSpWI0TDf421xnrZTDZnwNBapk1GQeYN7U1lTj/aQB1by6ow==",
-      "path": "system.runtime.loader/4.0.0",
-      "hashPath": "system.runtime.loader.4.0.0.nupkg.sha512"
+      "sha512": "sha512-DHMaRn8D8YCK2GG2pw+UzNxn/OHVfaWx7OTLBD/hPegHZZgcZh3H6seWegrC4BYwsfuGrywIuT+MQs+rPqRLTQ==",
+      "path": "system.runtime.loader/4.3.0",
+      "hashPath": "system.runtime.loader.4.3.0.nupkg.sha512"
     },
     "System.Runtime.Numerics/4.3.0": {
       "type": "package",
