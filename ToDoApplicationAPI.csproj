@@ -15,7 +15,9 @@
     <PackageReference Include="Artisan.Core.Bootstrap.StructureMap" Version="1.0.0" />
     <PackageReference Include="StructureMap.Microsoft.DependencyInjection" Version="2.0.0" />
     <PackageReference Include="Artisan.Core" Version="1.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.9"><PrivateAssets Condition="'%(PackageReference.Version)' == ''">all</PrivateAssets>
+<Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
+</PackageReference>
     <PackageReference Include="Artisan.Service.Core" Version="2.0.0" />
 
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.11" />
@@ -35,5 +37,6 @@
     <Folder Include="Controllers\Extensions\" />
     <Folder Include="Controllers\Contracts\" />
     <Folder Include="Bootstrap\" />
+    <Folder Include="Data\Extensions\" />
   </ItemGroup>
 </Project>

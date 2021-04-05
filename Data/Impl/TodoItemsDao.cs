@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using TodoApi.Models;
 using ToDoApplicationAPI.Biz;
 using ToDoApplicationAPI.Biz.Models;
@@ -56,6 +57,7 @@ namespace ToDoApplicationAPI.Data
         public async Task<SearchResponse<TodoItem>> Search(SearchTodoListRequestInfo info)
         {
             var query = todoContext.TodoItems
+            .Where(c => c.Name.StartsWith((string)info.name))
             .AsQueryable()
             .AsNoTracking();
 
@@ -63,6 +65,9 @@ namespace ToDoApplicationAPI.Data
             var results = await query
                 .OrderBy(c => c.Id)
                 .ToListAsync();
+
+                //.Skip(info.Offset)
+                //.Take(info.PageSize)
 
             return new SearchResponse<TodoItem>(results.Select(e => e.ToModel()), count);
 
