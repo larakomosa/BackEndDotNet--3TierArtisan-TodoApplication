@@ -63,12 +63,12 @@ namespace ToDoApplicationAPI.Controllers
 
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateTodoItem([FromRoute] long id, [FromBody] UpdateTodoItemMessage request)
+        [HttpPut()]
+        public async Task<ActionResult> UpdateTodoItem([FromBody] UpdateTodoItemMessage request)
         {
-            var info = new UpdateTodoItemInfo(request.Name, request.IsComplete);
+            var info = new UpdateTodoItemInfo(request.Id, request.Name, request.IsComplete);
 
-            await _manager.Update(id, info);
+            await _manager.Update(info);
 
             return NoContent();
         }

@@ -37,7 +37,7 @@ namespace ToDoApplicationAPI.Biz
             /// </summary>
             /// <param name="id">The unique identifier of the todo item being updated.</param>
             /// <param name="info">Information required to update a todo Item.</param>
-            Task<TodoItem> Update(long id, UpdateTodoItemInfo info);
+            Task<TodoItem> Update(UpdateTodoItemInfo info);
 
             /// <summary>
             /// Delete a todo item.

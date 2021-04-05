@@ -18,7 +18,7 @@
         ],
         "configFilePaths": [
           "/Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/NuGet.Config",
-          "/Users/lara.komosa/.nuget/NuGet/NuGet.Config"
+          "/Users/lara.komosa/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
@@ -29,6 +29,7 @@
         },
         "frameworks": {
           "netcoreapp2.1": {
+            "targetAlias": "netcoreapp2.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +41,7 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
           "dependencies": {
             "Artisan.Core": {
               "target": "Package",
@@ -54,8 +56,10 @@
               "version": "[2.0.0, )"
             },
             "Microsoft.AspNetCore.All": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[2.1.9, )"
+              "version": "[2.1.1, )",
+              "autoReferenced": true
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -76,13 +80,14 @@
               "version": "[2.1.11, )"
             },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[2.1.11, )"
+              "version": "[2.2.0, )"
             },
             "StructureMap.Microsoft.DependencyInjection": {
               "target": "Package",
@@ -90,10 +95,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -81,7 +81,7 @@ namespace ToDoApplicationAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseMvc();
         }

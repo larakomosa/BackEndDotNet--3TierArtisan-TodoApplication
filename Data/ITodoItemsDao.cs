@@ -9,7 +9,7 @@ namespace ToDoApplicationAPI.Data
     internal interface ITodoItemsDao
     {
         Task<TodoItem> Create(CreateTodoItemInfo createInfo);
-        Task<TodoItem> Update(long id, UpdateTodoItemInfo info);
+        Task<TodoItem> Update(UpdateTodoItemInfo info);
         Task<TodoItem> Delete(long id);
         Task<SearchResponse<TodoItem>> Search(SearchTodoListRequestInfo info);
     }

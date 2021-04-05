@@ -12,3 +12,8 @@
 /Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/obj/Debug/netcoreapp2.1/ToDoApplicationAPI.RazorTargetAssemblyInfo.cache
 /Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/obj/Debug/netcoreapp2.1/ToDoApplicationAPI.dll
 /Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/obj/Debug/netcoreapp2.1/ToDoApplicationAPI.pdb
+/Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/bin/Debug/netcoreapp2.1/nuget.config
+/Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/bin/Debug/netcoreapp2.1/appsettings.Development.json
+/Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/bin/Debug/netcoreapp2.1/appsettings.json
+/Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/bin/Debug/netcoreapp2.1/global.json
+/Users/lara.komosa/Projects/ToDoApplicationAPI/ToDoApplicationAPI/obj/Debug/netcoreapp2.1/ToDoApplicationAPI.genruntimeconfig.cache

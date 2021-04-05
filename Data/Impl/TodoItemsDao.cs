@@ -30,11 +30,11 @@ namespace ToDoApplicationAPI.Data
 
         }
 
-        async public Task<TodoItem> Update(long id, UpdateTodoItemInfo info)
+        async public Task<TodoItem> Update(UpdateTodoItemInfo info)
 
         {
             var change = await todoContext.TodoItems
-                .FirstAsync(i => i.Id == id);
+                .FirstAsync(i => i.Id == info.Id);
 
             change.Name = info.Name;
             change.IsComplete = info.IsComplete;
@@ -72,6 +72,8 @@ namespace ToDoApplicationAPI.Data
             return new SearchResponse<TodoItem>(results.Select(e => e.ToModel()), count);
 
         }
+
+      
     }
 }
 

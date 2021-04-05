@@ -59,12 +59,12 @@ namespace ToDoApplicationAPI.Biz
         }
 
 
-        public async Task<TodoItem> Update (long id, UpdateTodoItemInfo info)
+        public async Task<TodoItem> Update (UpdateTodoItemInfo info)
         {
-            Verify.That(id, nameof(id)).IsNotNull();
+
             Verify.That(info, nameof(info)).IsNotNull();
 
-            return await todoItemsDao.Update(id, info);
+            return await todoItemsDao.Update(info);
         }
 
         public async Task<TodoItem> Delete(long id)
