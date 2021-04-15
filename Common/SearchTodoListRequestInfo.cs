@@ -2,11 +2,11 @@
 {
     public class SearchTodoListRequestInfo
     {
-       public object id;
-        public object name;
-        public object isComplete;
+       public long id;
+        public string name;
+        public bool? isComplete;
 
-        public SearchTodoListRequestInfo(object id, object name, object isComplete)
+        public SearchTodoListRequestInfo(long id, string name, bool? isComplete)
         {
             this.id = id;
             this.name = name;

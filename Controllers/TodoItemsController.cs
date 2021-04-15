@@ -81,11 +81,11 @@ namespace ToDoApplicationAPI.Controllers
             return new OkResult();
         }
 
-        [HttpPost("/search")]
-        public async Task<SearchResponse<TodoItemResponse>> SearchTodoList([FromBody] SearchTodoListRequestMessage request, [FromQuery] string fields)
+        [HttpGet("search")]
+        public async Task<SearchResponse<TodoItemResponse>> SearchTodoList([FromQuery] long id, [FromQuery] string name, [FromQuery] bool? isComplete)
 
         {
-            var info = new SearchTodoListRequestInfo(request.Id, request.Name, request.IsComplete);
+            var info = new SearchTodoListRequestInfo(id, name, isComplete);
 
             var results = await _manager.Search(info);
 

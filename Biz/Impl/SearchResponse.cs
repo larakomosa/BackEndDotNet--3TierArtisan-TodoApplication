@@ -24,11 +24,11 @@ namespace ToDoApplicationAPI.Biz
             TotalCount = totalCount;
         }
 
-        public SearchResponse(IEnumerable<object> enumerable, int count)
-        {
-            this.enumerable = enumerable;
-            this.count = count;
-        }
+        //public SearchResponse(IEnumerable<object> enumerable, int count)
+        //{
+        //    this.enumerable = enumerable;
+        //    this.count = count;
+        //}
 
         /// <summary>
         /// The page of records that match the given search criteria.

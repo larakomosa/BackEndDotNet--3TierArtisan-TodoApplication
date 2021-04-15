@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -57,19 +58,16 @@ namespace ToDoApplicationAPI.Data
         public async Task<SearchResponse<TodoItem>> Search(SearchTodoListRequestInfo info)
         {
             var query = todoContext.TodoItems
-            .Where(c => c.Name.StartsWith((string)info.name))
+            .Where(c => c.Name.StartsWith((string)info.name) || info.isComplete == null ? true : c.IsComplete == info.isComplete)
             .AsQueryable()
             .AsNoTracking();
 
-            var count = await query.CountAsync();
-            var results = await query
+            int count = await query.CountAsync();
+            List<TodoItem>results = await query
                 .OrderBy(c => c.Id)
                 .ToListAsync();
 
-                //.Skip(info.Offset)
-                //.Take(info.PageSize)
-
-            return new SearchResponse<TodoItem>(results.Select(e => e.ToModel()), count);
+            return new SearchResponse<TodoItem>(results, count);
 
         }
 
